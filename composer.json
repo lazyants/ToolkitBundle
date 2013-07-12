@@ -1,0 +1,26 @@
+{
+    "name": "lazyants/toolkit-bundle",
+    "type": "symfony-bundle",
+    "description": "Toolkit Bundle provides basic usefully functional used in most projects",
+    "keywords": ["toolkit", "bundle"],
+    "homepage": "https://github.com/lazyants/ToolkitBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxim Spivakovsky",
+            "email": "maxim@lazy-ants.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "symfony/framework-bundle": ">=2.3,<2.4-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lazyants\\ToolkitBundle": ""
+        }
+    },
+    "target-dir": "Lazyants/ToolkitBundle"
+}
