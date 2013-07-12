@@ -28,6 +28,8 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": ">=2.3,<2.4-dev",
+    },
+    "require-dev": {
         "doctrine/orm": ">=2.2.3,<2.4-dev",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "knplabs/knp-paginator-bundle": "dev-master",
