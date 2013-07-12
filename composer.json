@@ -11,16 +11,23 @@
             "email": "maxim@lazy-ants.de"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
-        "php": ">=5.3.3"
-    },
-    "require-dev": {
-        "symfony/framework-bundle": ">=2.3,<2.4-dev"
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": ">=2.3,<2.4-dev",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "knplabs/knp-paginator-bundle": "dev-master"
     },
     "autoload": {
         "psr-0": {
             "Lazyants\\ToolkitBundle": ""
         }
     },
-    "target-dir": "Lazyants/ToolkitBundle"
+    "target-dir": "Lazyants/ToolkitBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
