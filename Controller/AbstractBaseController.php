@@ -74,6 +74,17 @@ abstract class AbstractBaseController extends Controller
     }
 
     /**
+     * @param string $role
+     * @throws AccessDeniedException
+     */
+    protected function throwExceptionIfNotGranted($role)
+    {
+        if (false === $this->isGranted($role)) {
+            throw new AccessDeniedException();
+        }
+    }
+
+    /**
      * @param string $type
      * @param string $message
      */
