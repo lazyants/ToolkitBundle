@@ -84,6 +84,11 @@ abstract class AbstractBaseController extends Controller
         }
     }
 
+    protected function isGrantedSuperadmin()
+    {
+        $this->throwExceptionIfNotGranted('ROLE_SUPERADMIN');
+    }
+
     /**
      * @param string $type
      * @param string $message
