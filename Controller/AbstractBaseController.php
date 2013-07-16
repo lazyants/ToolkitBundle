@@ -87,7 +87,7 @@ abstract class AbstractBaseController extends Controller
 
     protected function isGrantedSuperadmin()
     {
-        $this->throwExceptionIfNotGranted('ROLE_SUPERADMIN');
+        $this->throwExceptionIfNotGranted('ROLE_SUPER_ADMIN');
     }
 
     /**
