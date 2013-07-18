@@ -32,7 +32,7 @@ abstract class AbstractBaseController extends Controller
      */
     protected function checkIfFound($data)
     {
-        if (is_array($data)) {
+        if (is_array($data) || $data instanceof \Countable) {
             if (count($data) == 0) {
                 throw $this->createNotFoundException();
             }
