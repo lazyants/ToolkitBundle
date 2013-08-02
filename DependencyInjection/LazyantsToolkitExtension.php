@@ -19,10 +19,20 @@ class LazyantsToolkitExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
+        $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+        $container->setParameter('lazyants_toolkit.translation.bundles', $config['translation']['bundles']);
+        $container->setParameter('lazyants_toolkit.translation.locales', $config['translation']['locales']);
+
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.yml');
+    }
+
+    public function getConfiguration(array $config, ContainerBuilder $container)
+    {
+        $bundles = $container->getParameter('kernel.bundles');
+
+        return new Configuration(array_keys($bundles));
     }
 }
