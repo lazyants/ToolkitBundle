@@ -1,0 +1,31 @@
+
+    /**
+{% block phpdoc_method_header %}
+     * Deletes a {{ entity }} entity.
+{% endblock phpdoc_method_header %}
+     *
+{% block phpdoc_method_annotations %}
+     * @Route("/delete/{id}", requirements={"id": "\d+"})
+{% endblock phpdoc_method_annotations %}
+     *
+     * @param \{{ namespace }}\Entity\{{ entity }} ${{ str.lcfirst(entity) }}
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+{% block method_definition %}
+    public function deleteAction({{ entity }} $entity)
+{% endblock method_definition %}
+    {
+{% block method_body %}
+        $this->getEm()->remove($entity);
+        $this->getEm()->flush();
+
+        $this->flashSuccess('flash.successfully_deleted');
+{% endblock method_body %}
+
+{% block method_return %}
+        return $this->redirect($this->generateUrl('{{ route_name_prefix ~ 'index' }}'));
+{% endblock method_return %}
+    }
+
+{% block form %}{% endblock form %}

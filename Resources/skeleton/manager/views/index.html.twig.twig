@@ -1,0 +1,59 @@
+{% block extends %}
+{{ "{% extends '" ~ bundle ~ "::base.html.twig' %}" }}
+{% endblock extends %}
+
+{{ "{% block title %}{{ 'list.h1'|trans }}{{ parent() }}{% endblock %}" }}
+{{ "{% block h1 %}{{ 'list.h1'|trans }}{% endblock %}" }}
+
+{% block body %}
+{{ "{% block content -%}" }}
+    <table class="table table-striped table-condensed">
+        <thead>
+        <tr>
+        {%- for field, metadata in fields %}
+
+            <th>{{ field|capitalize }}</th>
+
+        {%- endfor %}
+
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ '{% for entity in entities %}' }}
+            <tr>
+
+        {%- for field, metadata in fields %}
+            {%- if loop.first and ('show' in actions) %}
+
+                <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
+
+            {%- elseif metadata.type in ['date', 'datetime'] %}
+
+                <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'m.d.Y H:i\') }}{% endif %}' }}</td>
+
+            {%- else %}
+
+                <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+            {%- endif %}
+
+            {%- if loop.last %}
+
+                <td>
+                    {{ "{{ buttons.edit(path('" ~ route_name_prefix ~ "manage', { 'id': entity.id })) }}" }}
+                    {{ "{{ buttons.delete(path('" ~ route_name_prefix ~ "delete', { 'id': entity.id })) }}" }}
+                </td>
+
+            {%- endif %}
+        {%- endfor %}
+
+            </tr>
+        {{ '{% endfor %}' }}
+        </tbody>
+    </table>
+
+    {% if 'new' in actions %}{{ "{{ buttons.new(path('" ~ route_name_prefix ~ "new')) }}" }}{% endif %}
+
+{{ "{% endblock %}" -}}
+{% endblock body %}

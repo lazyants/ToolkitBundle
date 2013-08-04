@@ -33,6 +33,7 @@
         "doctrine/orm": ">=2.2.3,<2.4-dev",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "knplabs/knp-paginator-bundle": "dev-master",
+        "sensio/generator-bundle": "~2.3",
         "jquery/jquery": "1.9.*"
     },
     "autoload": {

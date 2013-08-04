@@ -1,0 +1,22 @@
+{% block extends %}
+{{ "{% extends '" ~ bundle ~ "::base.html.twig' %}" }}
+{% endblock extends %}
+
+{{ "{% block title %}{{ 'edit.h1'|trans }}{{ parent() }}{% endblock %}" }}
+{{ "{% block h1 %}{{ 'edit.h1'|trans }}{% endblock %}" }}
+
+{% block body %}
+{{ "{% block content %}" }}
+    {{ "{% if entity.id is not null %}"  }}
+        {{ "{% set formAction =  path('" ~ route_name_prefix ~ "manage', { 'id': entity.id }) %}" }}
+    {{ "{% else %}" }}
+        {{ "{% set formAction =  path('" ~ route_name_prefix ~ "new') %} " }}
+    {{ "{% endif %}" }}
+
+    {{ "{{ form_start(form, {'action': formAction, 'attr': {'class': 'form-horizontal'} }) }}" }}
+        {{ "{{ form_widget(form, {'form_type': 'horizontal'}) }}" }}
+    {{ "{{ form_end(form) }}" }}
+
+    {{ "{{ buttons.back(path('" ~ route_name_prefix ~ "index')) }}" }}
+{{ "{% endblock %}" }}
+{% endblock body %}

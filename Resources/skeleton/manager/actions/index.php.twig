@@ -1,0 +1,26 @@
+
+    /**
+{% block phpdoc_method_header %}
+     * Lists all {{ entity }} entities.
+{% endblock phpdoc_method_header %}
+     *
+{% block phpdoc_method_annotations %}
+     * @Route("/{page}", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Template()
+{% endblock phpdoc_method_annotations %}
+     *
+     * @param integer $page
+     *
+     * @return array
+     */
+{% block method_definition %}
+    public function indexAction($page)
+{% endblock method_definition %}
+    {
+{% block method_body %}{% endblock method_body %}
+{% block method_return %}
+        return array(
+            'entities' => $this->paginate($this->getRepository()->{{ str.lcfirst(entity) }}()->findAll(), $page)
+        );
+{% endblock method_return %}
+    }
