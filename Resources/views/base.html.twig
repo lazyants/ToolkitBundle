@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html{% block html_lang %}{% endblock %}>
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}{% endblock %}</title>
@@ -18,7 +18,7 @@
 
     <link rel="icon" type="image/x-icon" href="{% block favicon %}{{ asset('favicon.ico') }}{% endblock %}"/>
 </head>
-<body>
+<body{% block body_class %}{% endblock %}>
 {% block body %}{% endblock %}
 </body>
 </html>
