@@ -53,6 +53,10 @@
         </tbody>
     </table>
 
+    {{ '<div class="navigation">
+	        {{ knp_pagination_render(entities)|raw }}
+	    </div>' }}
+
     {% if 'new' in actions %}{{ "{{ buttons.new(path('" ~ route_name_prefix ~ "new')) }}" }}{% endif %}
 
 {{ "{% endblock %}" -}}
