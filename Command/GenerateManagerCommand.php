@@ -131,7 +131,7 @@ class GenerateManagerCommand extends GenerateDoctrineCommand
      * @param null|string $bundle
      * @return array
      */
-    protected function getSkeletonDirs($bundle = null)
+    protected function getSkeletonDirs(BundleInterface $bundle = null)
     {
         $skeletonDirs = array();
 
