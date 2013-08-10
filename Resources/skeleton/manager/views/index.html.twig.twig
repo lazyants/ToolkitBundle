@@ -28,9 +28,17 @@
 
                 <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
 
-            {%- elseif metadata.type in ['date', 'datetime'] %}
+            {%- elseif metadata.type in ['date', 'datetime', 'time'] %}
 
-                <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'m.d.Y H:i\') }}{% endif %}' }}</td>
+                {% if metadata.type == 'date' %}
+                    {% set dateFormat = 'd.m.Y' %}
+                {% elseif metadata.type == 'datetime' %}
+                    {% set dateFormat = 'd.m.Y H:i' %}
+                {% elseif metadata.type == 'datetime' %}
+                    {% set dateFormat = 'H:i:s' %}
+                {% endif %}
+
+                <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'' ~ dateFormat ~ '\') }}{% endif %}' }}</td>
 
             {%- else %}
 
