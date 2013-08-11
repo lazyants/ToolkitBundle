@@ -3,7 +3,7 @@
 {% endblock extends %}
 {% block trans_default_domain %}
 {{ "{% trans_default_domain '" ~ entity|lower ~ "' %}" }}
-{% endblock extends %}
+{% endblock trans_default_domain %}
 
 {{ "{% block title %}{{ 'edit.h1'|trans }}{{ parent() }}{% endblock %}" }}
 {{ "{% block h1 %}{{ 'edit.h1'|trans }}{% endblock %}" }}
