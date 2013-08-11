@@ -1,6 +1,9 @@
 {% block extends %}
 {{ "{% extends '" ~ bundle ~ "::base.html.twig' %}" }}
 {% endblock extends %}
+{% block trans_default_domain %}
+{{ "{% trans_default_domain '" ~ entity|lower ~ "' %}" }}
+{% endblock extends %}
 
 {{ "{% block title %}{{ 'list.h1'|trans }}{{ parent() }}{% endblock %}" }}
 {{ "{% block h1 %}{{ 'list.h1'|trans }}{% endblock %}" }}
