@@ -3,7 +3,7 @@
 {% macro common(href, class, text, title, id) %}
     {% spaceless %}
         <a href="{{ href|default('#') }}" title="{{ title|default(text|default('button')) }}"
-           {% if id is defined and is is not null %}id="{{ id }}"{% endif %}
+           {% if id is defined and id is not null %}id="{{ id }}"{% endif %}
            class="btn {{ class|default('btn-primary') }}">
             {{ text|default('button') }}
         </a>
