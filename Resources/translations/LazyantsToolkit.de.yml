@@ -1,1 +1,7 @@
 flash.successfully_saved: 'Die Änderungen wurden erfolgreich gespeichert'
+button.back-to-list: 'zurück zur Übersicht'
+button.delete: löschen
+button.edit: bearbeiten
+button.new: neu
+button.show: Details
+button.save: speichern

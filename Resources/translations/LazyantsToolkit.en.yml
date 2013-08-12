@@ -1,1 +1,7 @@
 flash.successfully_saved: 'Changes were successfull saved'
+button.back-to-list: 'back to list'
+button.delete: delete
+button.edit: edit
+button.new: new
+button.show: view
+button.save: save
