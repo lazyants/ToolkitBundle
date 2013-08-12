@@ -1,36 +1,36 @@
 {% trans_default_domain 'interface' %}
 
-{% macro common(href, class, text, title) %}
+{% macro common(href, class, text, title, id) %}
     {% spaceless %}
-        <a href="{{ href|default('#') }}"
-           {% if title is defined %}title="{{ title }}"{% endif %}
+        <a href="{{ href|default('#') }}" title="{{ title|default(text|default('button')) }}"
+           {% if id is defined and is is not null %}id="{{ id }}"{% endif %}
            class="btn {{ class|default('btn-primary') }}">
             {{ text|default('button') }}
         </a>
     {% endspaceless %}
 {% endmacro %}
 
-{% macro back(href, text, title) %}
+{% macro back(href, text, title, id) %}
     {% import _self as buttons %}
-    {{ buttons.common(href, 'btn-link btn-back', text|default('button.back-to-list'|trans), title|default('button.back-to-list'|trans) ) }}
+    {{ buttons.common(href, 'btn-link btn-back', text|default('button.back-to-list'|trans), title|default(text|trans), id|default(null) ) }}
 {% endmacro %}
 
-{% macro delete(href, text, title) %}
+{% macro delete(href, text, title, id) %}
     {% import _self as buttons %}
-    {{ buttons.common(href, 'btn-danger btn-delete', text|default('button.delete'|trans), title|default('button.delete'|trans) ) }}
+    {{ buttons.common(href, 'btn-danger btn-delete', text|default('button.delete'|trans), title|default(text|trans), id|default(null) ) }}
 {% endmacro %}
 
-{% macro edit(href, text, title) %}
+{% macro edit(href, text, title, id) %}
     {% import _self as buttons %}
-    {{ buttons.common(href, 'btn-success btn-edit', text|default('button.edit'|trans), title|default('button.edit'|trans) ) }}
+    {{ buttons.common(href, 'btn-success btn-edit', text|default('button.edit'|trans), title|default(text|trans), id|default(null) ) }}
 {% endmacro %}
 
-{% macro new(href, text, title) %}
+{% macro new(href, text, title, id) %}
     {% import _self as buttons %}
-    {{ buttons.common(href, 'btn-success btn-new', text|default('button.new'|trans), title|default('button.new'|trans) ) }}
+    {{ buttons.common(href, 'btn-success btn-new', text|default('button.new'|trans), title|default(text|trans), id|default(null) ) }}
 {% endmacro %}
 
-{% macro show(href, text, title) %}
+{% macro show(href, text, title, id) %}
     {% import _self as buttons %}
-    {{ buttons.common(href, 'btn-info btn-show', text|default('button.show'|trans), title|default('button.show'|trans) ) }}
+    {{ buttons.common(href, 'btn-info btn-show', text|default('button.show'|trans), title|default(text|trans), id|default(null) ) }}
 {% endmacro %}
