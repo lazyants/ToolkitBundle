@@ -102,9 +102,24 @@ abstract class AbstractBaseController extends Controller
     /**
      * @param string $message
      */
-    protected function flashSuccess($message = '')
+    protected function flashSuccess($message)
     {
-        $message = $message ? : $this->trans('flash.successfully_saved', array(), 'LazyantsToolkit');
         $this->flash('success', $message);
+    }
+
+    /**
+     * @return void
+     */
+    protected function flashSuccessStored()
+    {
+        $this->flashSuccess($this->trans('flash.successfully_stored', array(), 'LazyantsToolkit'));
+    }
+
+    /**
+     * @return void
+     */
+    protected function flashSuccessDeleted()
+    {
+        $this->flashSuccess($this->trans('flash.successfully_deleted', array(), 'LazyantsToolkit'));
     }
 }

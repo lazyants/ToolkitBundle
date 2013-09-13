@@ -1,4 +1,5 @@
-flash.successfully_saved: 'Changes were successfull saved'
+flash.successfully_stored: 'Changes were successfull saved'
+flash.successfully_deleted: 'The record has been deleted successfully'
 button.back-to-list: 'back to list'
 button.delete: delete
 button.edit: edit

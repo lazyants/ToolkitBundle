@@ -1,4 +1,5 @@
-flash.successfully_saved: 'Die Änderungen wurden erfolgreich gespeichert'
+flash.successfully_stored: 'Die Änderungen wurden erfolgreich gespeichert'
+flash.successfully_deleted: 'Der Datensatz wurde erfolgreich gelöscht'
 button.back-to-list: 'zurück zur Übersicht'
 button.delete: löschen
 button.edit: bearbeiten
