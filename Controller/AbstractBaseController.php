@@ -108,11 +108,24 @@ abstract class AbstractBaseController extends Controller
     }
 
     /**
+     * @param string $message
+     */
+    protected function flashError($message)
+    {
+        $this->flash('error', $message);
+    }
+
+    /**
      * @return void
      */
     protected function flashSuccessStored()
     {
         $this->flashSuccess($this->trans('flash.successfully_stored', array(), 'LazyantsToolkit'));
+    }
+
+    protected function flashNotStored()
+    {
+        $this->flashError($this->trans('flash.store_failed', array(), 'LazyantsToolkit'));
     }
 
     /**
@@ -121,5 +134,13 @@ abstract class AbstractBaseController extends Controller
     protected function flashSuccessDeleted()
     {
         $this->flashSuccess($this->trans('flash.successfully_deleted', array(), 'LazyantsToolkit'));
+    }
+
+    /**
+     * @return void
+     */
+    protected function flashNotDeleted()
+    {
+        $this->flashError($this->trans('flash.delete_failed', array(), 'LazyantsToolkit'));
     }
 }

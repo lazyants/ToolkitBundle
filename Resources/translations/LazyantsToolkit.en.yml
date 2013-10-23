@@ -1,5 +1,7 @@
 flash.successfully_stored: 'Changes were successfull saved'
 flash.successfully_deleted: 'The record has been deleted successfully'
+flash.store_failed: 'Changes could not be saved'
+flash.delete_failed: 'The record could not be deleted'
 button.back-to-list: 'back to list'
 button.delete: delete
 button.edit: edit

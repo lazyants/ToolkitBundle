@@ -5,12 +5,12 @@
 {% endblock phpdoc_method_header %}
      *
 {% block phpdoc_method_annotations %}
-     * @Route("/delete/{id}", requirements={"id": "\d+"})
+     * @Route("/{id}/delete", requirements={"id": "\d+"})
 {% endblock phpdoc_method_annotations %}
      *
-     * @param \{{ namespace }}\Entity\{{ entity }} $entity
+     * @param {{ entity }} $entity
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
 {% block method_definition %}
     public function deleteAction({{ entity }} $entity)
@@ -20,7 +20,7 @@
         $this->getEm()->remove($entity);
         $this->getEm()->flush();
 
-        $this->flashSuccess('flash.successfully_deleted');
+        $this->flashSuccessDeleted();
 {% endblock method_body %}
 
 {% block method_return %}

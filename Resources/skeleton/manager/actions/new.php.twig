@@ -6,10 +6,11 @@
      *
 {% block phpdoc_method_annotations %}
      * @Route("/new")
+     * @Template("{{ bundle ~ ':' ~ entity ~ ':manage.html.twig' }}")
 {% endblock phpdoc_method_annotations %}
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     * @return array
      */
 {% block method_definition %}
     public function newAction(Request $request)

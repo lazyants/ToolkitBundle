@@ -1,5 +1,7 @@
 flash.successfully_stored: 'Die Änderungen wurden erfolgreich gespeichert'
 flash.successfully_deleted: 'Der Datensatz wurde erfolgreich gelöscht'
+flash.store_failed: 'Die Änderungen konnten nicht gespeichert werden'
+flash.delete_failed: 'Der Datensatz konnte nicht gelöscht werden'
 button.back-to-list: 'zurück zur Übersicht'
 button.delete: löschen
 button.edit: bearbeiten

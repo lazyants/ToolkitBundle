@@ -5,39 +5,37 @@
 {% endblock phpdoc_method_header %}
      *
 {% block phpdoc_method_annotations %}
-     * @Route("/manage/{id}", requirements={"id": "\d+"})
+     * @Route("/{id}/manage", requirements={"id": "\d+"})
      *
      * @Template()
 {% endblock phpdoc_method_annotations %}
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \{{ namespace }}\Entity\{{ entity }} $entity
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     * @param {{ entity }} $entity
+     * @return array
      */
 {% block method_definition %}
     public function manageAction(Request $request, {{ entity }} $entity)
 {% endblock method_definition %}
     {
 {% block method_body %}
-        $form = $this->createForm(new {{ entity_class }}Type(), $entity);
+        $form = $this
+            ->createForm(new {{ entity_class }}Type(), $entity)
+            ->handleRequest($request);
 
-        if ($request->getMethod() === 'POST') {
-            $form->submit($request);
+        if ($form->isValid()) {
+            $this->getEm()->persist($entity);
+            $this->getEm()->flush();
 
-            if ($form->isValid()) {
-                $this->getEm()->persist($entity);
-                $this->getEm()->flush();
-            }
+            $this->flashSuccessStored();
+
+            return $this->redirect(
+                $this->generateUrl('{{ route_name_prefix ~ 'manage' }}', array('id' => $entity->getId()))
+            );
         }
 {% endblock method_body %}
 
 {% block method_return %}
-        return $this->render(
-            '{{ bundle ~ ':' ~ entity ~ ':manage.html.twig' }}',
-            array(
-                'entity' => $entity,
-                'form' => $form->createView(),
-            )
-        );
+        return array('entity' => $entity, 'form' => $form->createView());
 {% endblock method_return %}
     }
