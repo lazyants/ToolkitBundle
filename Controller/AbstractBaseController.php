@@ -10,6 +10,14 @@ abstract class AbstractBaseController extends Controller
     abstract protected function getRepository();
 
     /**
+     * @return int
+     */
+    protected function getPageFromRequest()
+    {
+        return (int)$this->getRequest()->get('page', 1);
+    }
+
+    /**
      * @return \Doctrine\ORM\EntityManager
      */
     protected function getEm()
