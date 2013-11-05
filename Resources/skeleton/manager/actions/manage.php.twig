@@ -12,7 +12,7 @@
      *
      * @param Request $request
      * @param {{ entity }} $entity
-     * @return array
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
 {% block method_definition %}
     public function manageAction(Request $request, {{ entity }} $entity)
