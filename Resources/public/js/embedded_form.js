@@ -18,21 +18,19 @@ function embeddedForm(id) {
         $newLinkLi.before($newFormLi);
 
         // add a delete link to the new form
-        addEmbededFormDeleteLink($newFormLi);
+        this.addEmbeddedFormDeleteLink($newFormLi);
     };
 
-    this.addEmbeddedFormDeleteLink = function addEmbeddedFormDeleteLink($embededFormLi) {
-        removeId = 'remove_' + $embededFormLi.children().eq(0).attr('id');
-        var $removeFormA = $('<div id="' + removeId + '" class="remove-button"><a href="#"><i class="icon-remove-circle"></i></a></div><div class="clear"></div>');
-        $embededFormLi.append($removeFormA);
-
-        $removeFormA.on('click', function (e) {
-            // prevent the link from creating a "#" on the URL
-            e.preventDefault();
-
-            // remove the li for the embeded form
-            $embededFormLi.remove();
-        });
+    this.addEmbeddedFormDeleteLink = function addEmbeddedFormDeleteLink(embeddedFormLi) {
+        embeddedFormLi.append(
+            $('<div id="' + 'remove_' + embeddedFormLi.find('input').filter(':first').attr('id') +
+                '" class="remove-button">' +
+                '<a href="#"><i class="icon-remove-circle"></i></a></div><div class="clear"></div>'
+            ).on('click', function (e) {
+                    e.preventDefault();
+                    embeddedFormLi.remove();
+                })
+        );
     };
 
     this.id = id;
