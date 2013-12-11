@@ -1,4 +1,4 @@
-function embeddedForm(id) {
+function embeddedForm(id, addButtonTitle) {
     this.addEmbeddedForm = function addEmbeddedForm(collectionHolder, $newLinkLi) {
         // Get the data-prototype explained earlier
         var prototype = collectionHolder.data('prototype');
@@ -39,7 +39,8 @@ function embeddedForm(id) {
     var collectionHolder = $('#' + this.id);
 
     // setup an "add" link
-    var $addLink = $('<a href="#" class="btn btn-success">Add</a>');
+    addButtonTitle = (typeof addButtonTitle === 'undefined') ? 'Add' : addButtonTitle;
+    var $addLink = $('<a href="#" class="btn btn-success">' + addButtonTitle + '</a>');
     var $newLinkLi = $('<li></li>').append($addLink);
 
     var embeddedForm = this;
