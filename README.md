@@ -91,3 +91,6 @@ into app/Resources/LazyantsDoctrineManager/skeleton or YOUR_BUNDLE/Resources/Laz
 You can now customize controller, views or form. For actions without own view (by default there ist two - new and delete)
 simply don't create view files. Actions will be still created, if they are present in controller template and
 provided with --actions. In case of adding new actions or removing some of existing, you should always provide this argument.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lazyants/toolkitbundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
