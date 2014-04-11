@@ -153,5 +153,3 @@ class GenerateManagerCommand extends GenerateDoctrineCommand
         return $skeletonDirs;
     }
 }
-
-?>

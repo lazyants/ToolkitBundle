@@ -64,5 +64,3 @@ class TranslationUpdateCommand extends ContainerAwareCommand
         }
     }
 }
-
-?>
