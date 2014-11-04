@@ -23,7 +23,7 @@ function embeddedForm(id, addButtonTitle) {
 
     this.addEmbeddedFormDeleteLink = function addEmbeddedFormDeleteLink(embeddedFormLi) {
         embeddedFormLi.append(
-            $('<div id="' + 'remove_' + embeddedFormLi.find('input').filter(':first').attr('id') +
+            $('<div id="' + 'remove_' + embeddedFormLi.find('input,select,textarea').filter(':first').attr('id') +
                 '" class="remove-button">' +
                 '<a href="#"><i class="icon-remove-circle"></i></a></div><div class="clear"></div>'
             ).on('click', function (e) {
